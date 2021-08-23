@@ -15,9 +15,10 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
+    get "search", to: "users#search"
   end
   resources :chats, only: [:show, :create]
-  get '/search', to: 'searches#search'
+    get '/search', to: 'searches#search'
 end
 
 
